@@ -2,7 +2,9 @@
 
 const userForm = new UserForm ();
 
-userForm.loginFormCallback = (data) => ApiConnector.login (data, callback)
-
-const callback = (data) => 
+userForm.loginFormCallback = function (data) {
+    ApiConnector.login(data, (response) => {
+        console.log(response);
+    })
+}
 
