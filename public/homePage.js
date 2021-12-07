@@ -35,7 +35,7 @@ moneyManager.addMoneyCallback = (data) => {
             ProfileWidget.showProfile (response.data);
             moneyManager.setMessage(response.success, "Средства добавлены")
         } else {
-            moneyManager.setMessage(response.error) 
+            moneyManager.setMessage(response.success, response.error) 
         }
     })
 }
@@ -46,7 +46,7 @@ moneyManager.conversionMoneyCallback = (data) => {
             ProfileWidget.showProfile (response.data);
             moneyManager.setMessage(response.success, "Валюта сконвертирована")
         } else {
-            moneyManager.setMessage(response.error) 
+            moneyManager.setMessage(response.success, response.error) 
         }
     })
 }
@@ -57,7 +57,7 @@ moneyManager.sendMoneyCallback = (data) => {
             ProfileWidget.showProfile (response.data);
             moneyManager.setMessage(response.success, "Перевод осуществлен успешно!")
         } else {
-            moneyManager.setMessage(response.error) 
+            moneyManager.setMessage(response.success, response.error) 
         }
     })
 }
@@ -78,9 +78,9 @@ favoritesWidget.addUserCallback = (data) => {
             favoritesWidget.clearTable();
             favoritesWidget.fillTable(response.data);
             moneyManager.updateUsersList (response.data)
-            moneyManager.setMessage(response.success, "Пользователь добавлен!")
+            favoritesWidget.setMessage(response.success, "Пользователь добавлен!")
         } else {
-            moneyManager.setMessage(response.error)
+            favoritesWidget.setMessage(response.success, response.error)
         }
     })
 }
@@ -91,9 +91,9 @@ favoritesWidget.removeUserCallback = (data) => {
             favoritesWidget.clearTable();
             favoritesWidget.fillTable(response.data);
             moneyManager.updateUsersList (response.data)
-            moneyManager.setMessage(response.success, "Пользователь удален!")
+            favoritesWidget.setMessage(response.success, "Пользователь удален!")
         } else {
-            moneyManager.setMessage(response.error)
+            favoritesWidget.setMessage(response.success, response.error)
         }
     })
 }
